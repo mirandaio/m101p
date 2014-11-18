@@ -1,5 +1,3 @@
-
-
 #
 # Copyright (c) 2008 - 2013 10gen, Inc. <http://10gen.com>
 #
@@ -38,8 +36,8 @@ class UserDAO:
             salt = salt + random.choice(string.ascii_letters)
         return salt
 
-    # implement the function make_pw_hash(name, pw) that returns a hashed password
-    # of the format:
+    # implement the function make_pw_hash(name, pw) that returns a hashed
+    # password of the format:
     # HASH(pw + salt),salt
     # use sha256
 
@@ -54,9 +52,9 @@ class UserDAO:
         user = None
         try:
             # XXX HW 2.3 Students Work Here
-            # you will need to retrieve right document from the users collection.
-            print "This space intentionally left blank."
-            user = self.users.find_one({'username': username})
+            # you will need to retrieve right document from the users
+            # collection.
+            user = self.users.find_one({'_id': username})
         except:
             print "Unable to query database for user"
 
@@ -87,9 +85,6 @@ class UserDAO:
             # You need to insert the user into the users collection.
             # Don't over think this one, it's a straight forward insert.
             self.users.insert(user)
-
-            print "This space intentionally left blank."
-
         except pymongo.errors.OperationFailure:
             print "oops, mongo error"
             return False
@@ -98,5 +93,3 @@ class UserDAO:
             return False
 
         return True
-
-
