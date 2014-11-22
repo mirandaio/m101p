@@ -70,10 +70,7 @@ class BlogPostDAO:
         cursor = []         # Placeholder so blog compiles before you make your changes
 
         # XXX HW 3.2 Work here to get the posts
-        print 'Before building cursor!!!!!!!'
         cursor = self.posts.find().sort('date', pymongo.DESCENDING).limit(num_posts)
-        print type(cursor)
-
         l = []
 
         for post in cursor:
